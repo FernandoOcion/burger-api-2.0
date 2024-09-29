@@ -10,11 +10,16 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+const corsOptions = {
+	origin: "https://ocion-devburger.vercel.app",
+	credentials: true,
+};
+
 class App {
 	constructor() {
 		this.app = express();
 
-		this.app.use(cors());
+		this.app.use(cors(corsOptions));
 
 		this.middlewares();
 		this.routes();
